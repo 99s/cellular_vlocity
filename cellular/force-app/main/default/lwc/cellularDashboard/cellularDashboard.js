@@ -29,6 +29,8 @@ export default class CellularDashboard extends OmniscriptBaseMixin(LightningElem
      @api cellularProviderData; 
      @api cellularUserData;
 
+     CellularDashboardDataModelList = []; 
+
     connectedCallback(){
         //this.callDashboardDR();
         this.callOmniJsonData();
@@ -39,14 +41,23 @@ export default class CellularDashboard extends OmniscriptBaseMixin(LightningElem
 //call dr direct, omnijson data,  @api , dr > ip > lwc
 
   callApiData(){
-    console.log('<==========|cellularPhoneModelData|============> ')
-    console.log(JSON.stringify(this.cellularPhoneModelData));
-    console.log('<==========|cellularRateplanData|============> ')
-    console.log(JSON.stringify(this.cellularRateplanData));
-    console.log('<==========|cellularProviderData|============> ')
-    console.log(JSON.stringify(this.cellularProviderData));
-    console.log('<==========|cellularUserData|============> ')
-    console.log(JSON.stringify(this.cellularUserData));
+      try{
+        console.log('<==========|cellularPhoneModelData|============> ')
+        console.log(JSON.stringify(this.cellularPhoneModelData));
+        console.log('<==========|cellularRateplanData|============> ')
+        console.log(JSON.stringify(this.cellularRateplanData));
+        console.log('<==========|cellularProviderData|============> ')
+        console.log(JSON.stringify(this.cellularProviderData));
+        console.log('<==========|cellularUserData|============> ')
+        console.log(JSON.stringify(this.cellularUserData));
+    
+        let dataItem = new CellularDashboardDataModel(this.cellularPhoneModelData, this.cellularRateplanData, 
+            this.cellularProviderData, this.cellularUserData);
+            this.CellularDashboardDataModelList.push(dataItem);
+      }catch(e){
+          console.logerror('callApiData errer', e);
+      }
+   
   }
 
   callOmniJsonData(){
