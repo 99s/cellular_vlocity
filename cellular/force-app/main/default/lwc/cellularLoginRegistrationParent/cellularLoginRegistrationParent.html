@@ -1,3 +1,17 @@
 <template>
-    <h1> Login / registeation</h1>
+    <h1> Login / registeation parent</h1>
+<lightning-card>
+    <div  if:false={isRegistraionInit}>
+        <c-cellular-login></c-cellular-login>
+    </div>
+    <div  if:true={isRegistraionInit}>
+        <c-cellular-registration></c-cellular-registration>
+    </div>
+    <p slot="footer">
+        <lightning-button variant="base" label={loginregistrationSwitchText} title="" 
+        onclick={isRegistrationChecked} class="slds-m-left_x-small"></lightning-button>
+         </p>
+
+</lightning-card>
+
 </template>

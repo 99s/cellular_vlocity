@@ -1,25 +1,31 @@
 <template>
-    <lightning-card  title="Hello">
-        <lightning-button label="New" slot="actions"></lightning-button>
-        <p class="slds-p-horizontal_small">Cellular Login</p>
+    <lightning-card  title="Login">
+        <lightning-button variant="base" label=clear title="" 
+        onclick={resetLoginform} class="slds-m-left_x-small"></lightning-button>
+        <p class="slds-p-horizontal_small">{textShow}</p>
         <div class="slds-m-top_medium slds-m-bottom_x-large">
             <h2 class="slds-text-heading_medium slds-m-bottom_medium">
                User Name
             </h2>
     
             <!-- Default/basic -->
-            <div class="slds-p-around_medium lgc-bg">
-                <lightning-input type="text" label="Enter some text" placeholder="please enter username..." required></lightning-input>
+            <div class="slds-p-around_medium lgc-bg loginInput">
+                <lightning-input type="text" label="Enter some text" placeholder="please enter username..." required data-id="username"></lightning-input>
             </div>
+
             <h2 class="slds-text-heading_medium slds-m-bottom_medium">
                 Password
              </h2>
      
              <!-- Default/basic -->
-             <div class="slds-p-around_medium lgc-bg">
-                 <lightning-input type="text" label="Enter some text" placeholder="please enter password..." required></lightning-input>
+             <div class="slds-p-around_medium lgc-bg loginInput">
+                 <lightning-input type="text" label="Enter some text" placeholder="please enter password..." required data-id="password"></lightning-input>
              </div>
+
+             <lightning-button variant="brand" label="Login" title="Login Here" onclick={onclickLogin} class="slds-m-left_x-small">
+
+             </lightning-button>
         </div>
-        <p slot="footer">Not Registered ? </p>
+        
     </lightning-card>
 </template>

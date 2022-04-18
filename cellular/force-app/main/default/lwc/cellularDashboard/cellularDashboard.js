@@ -92,6 +92,7 @@ export default class CellularDashboard extends OmniscriptBaseMixin(LightningElem
     async handledashboardDataClick(event){
       
      try{
+        console.log('handledashboardDataClick event:', event);
         const params = {
             input:{}, //JSON.stringify(inputData),
             sClassName: 'vlocity_ins.IntegrationProcedureService',
@@ -122,21 +123,21 @@ export default class CellularDashboard extends OmniscriptBaseMixin(LightningElem
 
     }
 
-    initializeChart(){
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: data,
-            options: {
-              onClick: (e) => {
-                const canvasPosition = getRelativePosition(e, chart);
+    // initializeChart(){
+    //     const chart = new Chart(ctx, {
+    //         type: 'line',
+    //         data: data,
+    //         options: {
+    //           onClick: (e) => {
+    //             const canvasPosition = getRelativePosition(e, chart);
           
-                // Substitute the appropriate scale IDs
-                const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
-                const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
-              }
-            }
-          });
-    }
+    //             // Substitute the appropriate scale IDs
+    //             const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
+    //             const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
+    //           }
+    //         }
+    //       });
+    // }
     
 
 }
