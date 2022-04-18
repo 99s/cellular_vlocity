@@ -2,6 +2,8 @@ import { LightningElement } from 'lwc';
 import {
     OmniscriptBaseMixin
 } from 'vlocity_ins/omniscriptBaseMixin';
+
+import VerifyLogin from '@salesforce/apex/CellularLoginClass.VerifyLogin';
 // import {
 //     getDataHandler
 // } from 'vlocity_ins/utility';
@@ -20,13 +22,26 @@ export default class CellularLogin extends OmniscriptBaseMixin(LightningElement)
     }
 
     resetLoginform(){
-        // this.template.getElementsByClassName('loginInput').forEach(element => {
+        try{
+            // this.template.getElementsByClassName('loginInput').forEach(element => {
         //     element.value = null;
         //   });
-        this.template.querySelectorAll('.loginInput').forEach(element => {
+        this.template.querySelectorAll('.login-input').forEach(element => {
+            
+           
             element.value = null;
           });
+
           this.textShow = '';
+
+          
+          
+        }catch(e){
+            console.log('CellularLogin resetLoginform error : ', e);
+        }
+
+        
+
     }
 
     onclickLogin(){
@@ -37,6 +52,8 @@ export default class CellularLogin extends OmniscriptBaseMixin(LightningElement)
             let loginData = new LoginData(un,pa);
             console.log('loginData-->', loginData);
             this.textShow = JSON.stringify(loginData);
+            let returnData = VerifyLogin(loginData);
+            console.log('returnData-->', returnData);
         }catch(e){
             console.log('CellularLogin onclickLogin error : ', e);
             this.textShow = e.message;
