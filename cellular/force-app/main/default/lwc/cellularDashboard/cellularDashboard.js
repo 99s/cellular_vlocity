@@ -8,7 +8,7 @@ import {
 import {
     getDataHandler
 } from 'vlocity_ins/utility';
-
+import CallDR from '@salesforce/apex/CellularDashboard.CallDR';
 class CellularDashboardDataModel{
 
      constructor(cellularPhoneModelData, cellularRateplanData, cellularProviderData, cellularUserData){
@@ -110,17 +110,16 @@ export default class CellularDashboard extends OmniscriptBaseMixin(LightningElem
      }catch(e){
         console.log('Error handledashboardDataClick..', e);
      }
-        
- 
-      
- 
-        // const inputData = {
-        //     "QuoteId": this.quoteId,
-        //     "LineItemId": lineItemId,
-        //     "Quantity": parseInt(addOnQuantity)
-        // };
-      
 
+    }
+
+    CallApexClass(){
+        try{
+            let ss = CallDR();
+            console.log('');
+        }catch(e){
+            console.log('');
+        }
     }
 
     // initializeChart(){

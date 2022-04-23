@@ -58,7 +58,7 @@ export default class CellularLogin extends OmniscriptBaseMixin(LightningElement)
             console.log('onclickLogin returnJson-->', returnJson);
             if(returnJson != null){
                  if(returnJson.result === true){
-                        this.textShow = 'login success!'
+                        this.textShow = 'login success!';
                  }
                  else{
                     this.textShow = 'login failed !';
