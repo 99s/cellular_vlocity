@@ -8,7 +8,7 @@ import {
 import {
     getDataHandler
 } from 'vlocity_ins/utility';
-import CallDR from '@salesforce/apex/CellularDashboard.CallDR';
+import CallDRExtract from '@salesforce/apex/CellularDashboard.CallDRExtract';
 class CellularDashboardDataModel{
 
      constructor(cellularPhoneModelData, cellularRateplanData, cellularProviderData, cellularUserData){
